@@ -1,4 +1,3 @@
-# time_tracker_gui.py
 
 import sys
 import os
