@@ -21,23 +21,19 @@ class TimeTrackerGUI(QMainWindow):
         self.setWindowTitle('Time Tracker')
         self.setGeometry(100, 100, 600, 500)
 
-        # Widget central
         self.central_widget = QWidget()
         self.setCentralWidget(self.central_widget)
 
-        # Layouts
         main_layout = QVBoxLayout()
         ticket_layout = QHBoxLayout()
         button_layout = QHBoxLayout()
 
-        # Campo de entrada do Ticket
         ticket_label = QLabel('ID do Ticket:')
         self.ticket_entry = QLineEdit()
 
         ticket_layout.addWidget(ticket_label)
         ticket_layout.addWidget(self.ticket_entry)
 
-        # Botões
         self.start_button = QPushButton('Iniciar Timer')
         self.start_button.clicked.connect(self.start_timer)
 
@@ -52,18 +48,15 @@ class TimeTrackerGUI(QMainWindow):
         button_layout.addWidget(self.stop_button)
         button_layout.addWidget(self.status_button)
 
-        # Área de status
         status_label = QLabel('Status:')
         self.status_area = QTextEdit()
         self.status_area.setReadOnly(True)
 
-        # Adicionando layouts ao layout principal
         main_layout.addLayout(ticket_layout)
         main_layout.addLayout(button_layout)
         main_layout.addWidget(status_label)
         main_layout.addWidget(self.status_area)
 
-        # Configurar o widget central
         self.central_widget.setLayout(main_layout)
 
     def start_timer(self):
