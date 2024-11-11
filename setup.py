@@ -3,11 +3,11 @@ from setuptools import setup
 APP = ['time_tracker_gui.py']
 DATA_FILES = []
 OPTIONS = {
-    'argv_emulation': False,  # Desativar argv_emulation
-    'iconfile': 'app_icon.icns',  # Opcional: adicionar um ícone personalizado se necessário
-    'includes': ['sip', 'PyQt5', 'cmath'],  # Inclua apenas PyQt5 e SIP
-    'packages': ['pandas'],  # Inclua apenas pandas como dependência essencial
-    'excludes': ['PyInstaller'],  # Exclui o PyInstaller
+    'argv_emulation': False, 
+    'iconfile': 'app_icon.icns',  
+    'includes': ['sip', 'PyQt5', 'cmath'],  
+    'packages': ['pandas'],  
+    'excludes': ['PyInstaller'], 
     'plist': {
         'CFBundleName': 'Time Tracker',
         'CFBundleDisplayName': 'Time Tracker',
