@@ -6,7 +6,6 @@ import time
 from datetime import datetime, timedelta
 import pandas as pd
 
-# Definições de constantes
 TARGET_HOURS = 40
 
 class TimeTracker:
@@ -65,10 +64,8 @@ class TimeTracker:
         date_str = datetime.fromtimestamp(end_time).strftime('%Y-%m-%d')
         csv_file = self.get_csv_filename()
 
-        # Escreve no CSV
         self.write_to_csv(csv_file, ticket, date_str, formatted_time)
 
-        # Remove o estado atual
         os.remove(state_file)
         status_message = f"Timer encerrado para o ticket {ticket} às {datetime.fromtimestamp(end_time).strftime('%Y-%m-%d %H:%M:%S')}\nTempo registrado: {formatted_time}"
         status_message += "\n" + self.exibir_status()
@@ -94,12 +91,10 @@ class TimeTracker:
         except Exception as e:
             return f"Ocorreu um erro ao ler o CSV: {e}"
 
-        # Verifica se as colunas necessárias existem
         required_columns = {'Ticket', 'Data', 'Horas'}
         if not required_columns.issubset(df.columns):
             return f"O arquivo CSV está faltando uma ou mais colunas necessárias: {required_columns}"
 
-        # Filtra para a semana atual (já que cada CSV é semanal, não é necessário filtrar novamente)
         current_week = df
         total_seconds = 0
         for time_str in current_week['Horas']:
